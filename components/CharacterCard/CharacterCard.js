@@ -1,13 +1,13 @@
-export function CharacterCard() {
+export function CharacterCard({ source, characterName, characterStatus, characterOccurrences, characterType }) {
   //Karte erstellen
   const main = document.querySelector("main");
   const card = document.createElement("ul");
 
-  const source = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
+  /*const source = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
   const characterName = "Rick Sanchez";
   const characterStatus = "Alive";
   const characterType = "";
-  const characterOccurrences = 51;
+  const characterOccurrences = 51;*/
 
   card.classList.add("card-container");
   card.setAttribute("data-js", "card-container");
