@@ -14,6 +14,7 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 42;
 let pageIndex = 1;
 const searchQuery = "";
+
 // previousButton eventListener
 
 prevButton.addEventListener("click", () => {
@@ -37,6 +38,7 @@ const url = "https://rickandmortyapi.com/api/character/?page=";
 
 async function fetchCharacters() {
   cardContainer.innerHTML = "";
+  pagination.textContent = `${pageIndex} / ${maxPage}`;
   try {
     const response = await fetch(url + pageIndex);
     if (!response.ok) {
