@@ -15,30 +15,29 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-
 // fetching data from api
 const url = "https://rickandmortyapi.com/api/character";
 
 async function fetchCharacters() {
-
-  const response = await fetch (url)
-  const data = await response.json();
-  console.log(data.results)
-  data.results.forEach((result) => {
-    const character = {
-      source: result.image,
-      characterName: result.name,
-      characterStatus: result.status, 
-      characterType: result.type, 
-      characterOccurrences: result.episode.length
-    };
-    CharacterCard(character);
-  });
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    const data = await response.json();
+    data.results.forEach((result) => {
+      const character = {
+        source: result.image,
+        characterName: result.name,
+        characterStatus: result.status,
+        characterType: result.type,
+        characterOccurrences: result.episode.length,
+      };
+      CharacterCard(character);
+    });
+  } catch (error) {
+    console.log("fail to load");
+  }
 }
 
 fetchCharacters();
-
-
-
-
-
