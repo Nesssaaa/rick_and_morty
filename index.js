@@ -11,6 +11,7 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
+let maxPage=42;
 let pageIndex = 1;
 let searchQuery = "";
 
